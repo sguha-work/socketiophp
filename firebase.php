@@ -1,22 +1,36 @@
 <?php
     require __DIR__.'/vendor/autoload.php';
+        
+    class FireBase {
+        
+        private $DEFAULT_URL;
+        private $DEFAULT_TOKEN;
+        private $firebase;
+        private $DEFAULT_PATH = '';
 
-    use Kreait\Firebase\Factory;
-    use Kreait\Firebase\ServiceAccount;
-    
-    // This assumes that you have placed the Firebase credentials in the same directory
-    // as this PHP file.
-    $serviceAccount = ServiceAccount::fromJsonFile(__DIR__.'/google-service-account.json');
-    
-    $firebase = (new Factory)
-        ->withServiceAccount($serviceAccount)
-        // The following line is optional if the project id in your credentials file
-        // is identical to the subdomain of your Firebase project. If you need it,
-        // make sure to replace the URL with the URL of your project.
-        ->withDatabaseUri('https://my-project.firebaseio.com')
-        ->create();
-    
-    $database = $firebase->getDatabase();
+        function __construct() {
+            $myfile = fopen("google-service-account.json", "r") or die("Unable to open account file!");
+            $data = json_decode(fread($myfile,filesize("google-service-account.json")));
+            $this->DEFAULT_URL = $data->databaseURL;
+            $this->DEFAULT_TOKEN = $data->apiKey;
+            $this->firebase = new \Firebase\FirebaseLib($this->DEFAULT_URL, $this->DEFAULT_TOKEN);
+        }
+
+        function readFromDocument($key) {
+            return $this->firebase->get($this->DEFAULT_PATH . '/name');
+        }
+
+        function writeToDocument($key, $dataArray) {
+            try {
+                $this->firebase->set('/', $dataArray);
+            } catch(Exception $e) {
+                echo $e;
+                die;
+            }
+        }
+
+    }
+
     
 ?>
 

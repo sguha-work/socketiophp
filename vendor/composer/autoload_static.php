@@ -4,18 +4,30 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitb81c27826f227734f407cd34d7d42ae8
+class ComposerStaticInit3e37e194bfaa159d2d7c37af81b4dd89
 {
     public static $files = array (
         'ad155f8f1cf0d418fe49e248db8c661b' => __DIR__ . '/..' . '/react/promise/src/functions_include.php',
-        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
+        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
+        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '6b06ce8ccf69c43a60a1e48495a034c9' => __DIR__ . '/..' . '/react/promise-timer/src/functions.php',
+        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
-        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
+        'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
+        'b067bc7112e384b61c701452d53a14a8' => __DIR__ . '/..' . '/mtdowling/jmespath.php/src/JmesPath.php',
     );
 
     public static $prefixLengthsPsr4 = array (
+        'p' => 
+        array (
+            'phpseclib\\' => 10,
+        ),
+        'Z' => 
+        array (
+            'Zend\\Diactoros\\' => 15,
+        ),
         'W' => 
         array (
             'Workerman\\' => 10,
@@ -26,7 +38,6 @@ class ComposerStaticInitb81c27826f227734f407cd34d7d42ae8
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Component\\Routing\\' => 26,
             'Symfony\\Component\\HttpFoundation\\' => 33,
-            'SocketIO\\' => 9,
         ),
         'R' => 
         array (
@@ -42,12 +53,38 @@ class ComposerStaticInitb81c27826f227734f407cd34d7d42ae8
         ),
         'P' => 
         array (
+            'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
+            'Psr\\Cache\\' => 10,
             'PHPSocketIO\\' => 12,
+        ),
+        'M' => 
+        array (
+            'Monolog\\' => 8,
+        ),
+        'K' => 
+        array (
+            'Kreait\\Firebase\\' => 16,
+        ),
+        'J' => 
+        array (
+            'JmesPath\\' => 9,
+        ),
+        'I' => 
+        array (
+            'Ivory\\HttpAdapter\\' => 18,
         ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
+            'GuzzleHttp\\Promise\\' => 19,
+            'GuzzleHttp\\' => 11,
+            'Google\\Auth\\' => 12,
+        ),
+        'F' => 
+        array (
+            'Firebase\\Token\\' => 15,
+            'Firebase\\JWT\\' => 13,
         ),
         'C' => 
         array (
@@ -56,6 +93,14 @@ class ComposerStaticInitb81c27826f227734f407cd34d7d42ae8
     );
 
     public static $prefixDirsPsr4 = array (
+        'phpseclib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib',
+        ),
+        'Zend\\Diactoros\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-diactoros/src',
+        ),
         'Workerman\\' => 
         array (
             0 => __DIR__ . '/..' . '/workerman/workerman',
@@ -75,10 +120,6 @@ class ComposerStaticInitb81c27826f227734f407cd34d7d42ae8
         'Symfony\\Component\\HttpFoundation\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/http-foundation',
-        ),
-        'SocketIO\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
         ),
         'React\\Stream\\' => 
         array (
@@ -116,17 +157,61 @@ class ComposerStaticInitb81c27826f227734f407cd34d7d42ae8
         array (
             0 => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet',
         ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'Psr\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
         'PHPSocketIO\\' => 
         array (
             0 => __DIR__ . '/..' . '/workerman/phpsocket.io/src',
         ),
+        'Monolog\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'Kreait\\Firebase\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kreait/firebase-php/src',
+        ),
+        'JmesPath\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mtdowling/jmespath.php/src',
+        ),
+        'Ivory\\HttpAdapter\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/egeloen/http-adapter/src',
+        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'GuzzleHttp\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
+        ),
+        'GuzzleHttp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'Google\\Auth\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/google/auth/src',
+        ),
+        'Firebase\\Token\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/firebase/token-generator/src',
+        ),
+        'Firebase\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
         ),
         'Channel\\' => 
         array (
@@ -135,6 +220,17 @@ class ComposerStaticInitb81c27826f227734f407cd34d7d42ae8
     );
 
     public static $prefixesPsr0 = array (
+        'G' => 
+        array (
+            'Google_Service_' => 
+            array (
+                0 => __DIR__ . '/..' . '/google/apiclient-services/src',
+            ),
+            'Google_' => 
+            array (
+                0 => __DIR__ . '/..' . '/google/apiclient/src',
+            ),
+        ),
         'E' => 
         array (
             'Evenement' => 
@@ -149,6 +245,12 @@ class ComposerStaticInitb81c27826f227734f407cd34d7d42ae8
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
         'DivisionByZeroError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/DivisionByZeroError.php',
         'Error' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/Error.php',
+        'Firebase\\Error' => __DIR__ . '/..' . '/ktamas77/firebase-php/src/firebaseStub.php',
+        'Firebase\\FirebaseInterface' => __DIR__ . '/..' . '/ktamas77/firebase-php/src/firebaseInterface.php',
+        'Firebase\\FirebaseLib' => __DIR__ . '/..' . '/ktamas77/firebase-php/src/firebaseLib.php',
+        'Firebase\\FirebaseStub' => __DIR__ . '/..' . '/ktamas77/firebase-php/src/firebaseStub.php',
+        'Google_Service_Exception' => __DIR__ . '/..' . '/google/apiclient/src/Google/Service/Exception.php',
+        'Google_Service_Resource' => __DIR__ . '/..' . '/google/apiclient/src/Google/Service/Resource.php',
         'ParseError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ParseError.php',
         'SessionUpdateTimestampHandlerInterface' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/SessionUpdateTimestampHandlerInterface.php',
         'TypeError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/TypeError.php',
@@ -157,10 +259,10 @@ class ComposerStaticInitb81c27826f227734f407cd34d7d42ae8
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitb81c27826f227734f407cd34d7d42ae8::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitb81c27826f227734f407cd34d7d42ae8::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitb81c27826f227734f407cd34d7d42ae8::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitb81c27826f227734f407cd34d7d42ae8::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit3e37e194bfaa159d2d7c37af81b4dd89::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit3e37e194bfaa159d2d7c37af81b4dd89::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit3e37e194bfaa159d2d7c37af81b4dd89::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit3e37e194bfaa159d2d7c37af81b4dd89::$classMap;
 
         }, null, ClassLoader::class);
     }

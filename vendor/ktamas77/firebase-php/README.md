@@ -2,6 +2,8 @@
 
 [![Build Status](https://drone.io/github.com/ktamas77/firebase-php/status.png)](https://drone.io/github.com/ktamas77/firebase-php/latest)
 
+[![Build Status](https://semaphoreci.com/api/v1/ktamas77/firebase-php/branches/master/badge.svg)](https://semaphoreci.com/ktamas77/firebase-php)
+
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/ktamas77/firebase-php/badges/quality-score.png?s=239ffca76628b5a86540b9def187e2f8a199cb10)](https://scrutinizer-ci.com/g/ktamas77/firebase-php/)
 
 Based on the [Firebase REST API](https://www.firebase.com/docs/rest-api.html).
@@ -54,6 +56,10 @@ $firebase->push($path, $data);   // push data to Firebase
 // -- Query Parameters can be optionally used on all operations, example:
 
 $value = $firebase->get($path, array('shallow' => 'true'));
+
+// -- Query Parameter values with quotes, example (https://firebase.google.com/docs/database/rest/retrieve-data#filtering-by-a-specified-child-key):
+
+$value = $firebase->get($path, array('orderBy' => '"height"'));
 
 // -- Firebase PHP Library commands
 
