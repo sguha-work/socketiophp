@@ -22,13 +22,21 @@
             echo "</br><b>id</b>: ".$row[0]." <b>Name: </b>".$row[1]." <b>PhoneNumber: </b>".$row[2]." <b>Address: </b>".$row[3];
         }
     }
-    mysqli_close($con);
+    
 
     echo "</br>STEP2: Putting data to firebase";
     require_once 'firebase.php';
-    $object =new FireBase();
-    $test = array(
-        "name" => "piklu",
-    );
-    $object->writeToDocument("user", $test);
+    $firebaseObject =new FireBase();
+    $data = array();
+    $result=mysqli_query($con,$sql);
+    while($row = mysqli_fetch_assoc($result)) {
+        array_push($data, $row);
+    }
+    $firebaseObject->writeToDocument("user", $data);
+    echo "</br>Writing to firebase done";
+    mysqli_close($con);
+
+    echo "</br>STEP3: Getting data from firebase";
+    $data =  $firebaseObject->readFromDocument("user");
+    echo "</br>".$data;
 ?>

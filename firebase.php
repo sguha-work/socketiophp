@@ -22,7 +22,7 @@
          * 
          */
         public function readFromDocument($key) {
-            return $this->firebase->get($this->DEFAULT_PATH . '/name');
+            return $this->firebase->get('/'.$key);
         }
 
         /**
