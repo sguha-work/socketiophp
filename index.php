@@ -32,7 +32,7 @@
     while($row = mysqli_fetch_assoc($result)) {
         array_push($data, $row);
     }
-    $firebaseObject->writeToDocument("user", $data);
+    $firebaseObject->writeViaCurl("user", $data);
     echo "</br>Writing to firebase done";
     mysqli_close($con);
 

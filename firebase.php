@@ -1,5 +1,5 @@
 <?php
-    require __DIR__.'/vendor/autoload.php';
+    //require __DIR__.'/vendor/autoload.php';
         
     class FireBase {
         
@@ -13,7 +13,7 @@
             $data = json_decode(fread($myfile,filesize("google-service-account.json")));
             $this->DEFAULT_URL = $data->databaseURL;
             $this->DEFAULT_TOKEN = $data->apiKey;
-            $this->firebase = new \Firebase\FirebaseLib($this->DEFAULT_URL, $this->DEFAULT_TOKEN);
+            //$this->firebase = new \Firebase\FirebaseLib($this->DEFAULT_URL, $this->DEFAULT_TOKEN);
         }
 
         /**
@@ -22,19 +22,36 @@
          * 
          */
         public function readFromDocument($key) {
-            return $this->firebase->get('/'.$key);
+            //return $this->firebase->get('/'.$key);
         }
 
         /**
          * This function is used for writing the data to database
          */
         public function writeToDocument($key, $dataArray) {
-            try {
-                $this->firebase->set('/'.$key."/", $dataArray);
-            } catch(Exception $e) {
-                echo $e;
-                die;
+            // try {
+            //     $this->firebase->set('/'.$key."/", $dataArray);
+            // } catch(Exception $e) {
+            //     echo $e;
+            //     die;
+            // }
+        }
+
+        public function writeViaCurl($key, $dataArray) {
+            $url = $this->DEFAULT_URL.".json";
+            $ch = curl_init();
+            $finalData= array();
+            $finalData[$key]=$dataArray;
+            curl_setopt($ch, CURLOPT_URL, $url);                               
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($finalData));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: text/plain'));
+            $jsonResponse = curl_exec($ch);
+            if(curl_errno($ch)) {
+                echo 'Curl error: ' . curl_error($ch);
             }
+            curl_close($ch);
         }
 
     }
