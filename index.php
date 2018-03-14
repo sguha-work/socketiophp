@@ -37,6 +37,6 @@
     mysqli_close($con);
 
     echo "</br>STEP3: Getting data from firebase";
-    $data =  $firebaseObject->readFromDocument("user");
+    $data =  $firebaseObject->readViaCURL("user");
     echo "</br>".$data;
 ?>
