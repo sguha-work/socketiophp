@@ -16,13 +16,21 @@
             $this->firebase = new \Firebase\FirebaseLib($this->DEFAULT_URL, $this->DEFAULT_TOKEN);
         }
 
-        function readFromDocument($key) {
+        /**
+         * This function is used to read from the database, call it with proper document name and the 
+         * data will be returned. Need to provide proper key structure in order to get perticular data
+         * 
+         */
+        public function readFromDocument($key) {
             return $this->firebase->get($this->DEFAULT_PATH . '/name');
         }
 
-        function writeToDocument($key, $dataArray) {
+        /**
+         * This function is used for writing the data to database
+         */
+        public function writeToDocument($key, $dataArray) {
             try {
-                $this->firebase->set('/', $dataArray);
+                $this->firebase->set('/'.$key."/", $dataArray);
             } catch(Exception $e) {
                 echo $e;
                 die;
