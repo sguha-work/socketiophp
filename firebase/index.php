@@ -32,11 +32,13 @@
     while($row = mysqli_fetch_assoc($result)) {
         array_push($data, $row);
     }
-    $firebaseObject->writeViaCurl("user", $data);
+    //$firebaseObject->writeViaCurl("user", $data);
+    $firebaseObject->writeToDocument("user", $data);
     echo "</br>Writing to firebase done";
     mysqli_close($con);
 
     echo "</br>STEP3: Getting data from firebase";
-    $data =  $firebaseObject->readViaCURL("user");
+    //$data =  $firebaseObject->readViaCURL("user");
+    $data =  $firebaseObject->readFromDocument("user");
     echo "</br>".$data;
 ?>

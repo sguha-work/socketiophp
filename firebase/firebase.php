@@ -1,5 +1,5 @@
 <?php
-    //require __DIR__.'/vendor/autoload.php';
+    require __DIR__.'/vendor/autoload.php';
         
     class FireBase {
         
@@ -13,7 +13,7 @@
             $data = json_decode(fread($myfile,filesize("google-service-account.json")));
             $this->DEFAULT_URL = $data->databaseURL;
             $this->DEFAULT_TOKEN = $data->apiKey;
-            //$this->firebase = new \Firebase\FirebaseLib($this->DEFAULT_URL, $this->DEFAULT_TOKEN);
+            $this->firebase = new \Firebase\FirebaseLib($this->DEFAULT_URL, $this->DEFAULT_TOKEN);
         }
 
         /**
@@ -22,19 +22,19 @@
          * 
          */
         public function readFromDocument($key) {
-            //return $this->firebase->get('/'.$key);
+            return $this->firebase->get('/'.$key);
         }
 
         /**
          * This function is used for writing the data to database
          */
         public function writeToDocument($key, $dataArray) {
-            // try {
-            //     $this->firebase->set('/'.$key."/", $dataArray);
-            // } catch(Exception $e) {
-            //     echo $e;
-            //     die;
-            // }
+            try {
+                $this->firebase->set('/'.$key."/", $dataArray);
+            } catch(Exception $e) {
+                echo $e;
+                die;
+            }
         }
 
         public function writeViaCURL($key, $dataArray) {
