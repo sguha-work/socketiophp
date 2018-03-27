@@ -22,7 +22,7 @@ class Messeging {
             if(curl_errno($ch)){
                 return 'Curl error: ' . curl_error($ch);
             }
-            curl_close($ch);
+            curl_close($ch);echo "</br>".$result;
             $curl_message=json_decode($result);
             if(gettype($curl_message)=="object" && $curl_message->success == 1) {
                 return $result;
