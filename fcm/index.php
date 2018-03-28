@@ -3,7 +3,7 @@
 
     $article = array("signum"=>"ESAHGUH", "article_id"=>"ca29dca3-910c-410d-850d-6d807e85750e", "title"=>'GOOD TO KNOW : : MSDP : INFORMATION REGARDING (BIDWH- KISTA) - Custom SQL based reports on "OneMSDP" Universe for "TT,CR,PT,MR,WO-Int" Subject Area wi',"introduction_text"=>'MSDP: Custom SQL based reports on "OneMSDP Universe” for "TT,CR,PT,MR,WO-Int" Subject Area will be discontinued');
 
-    $message = json_encode($article);
+    $message = $article["introduction_text"];
     $title = $article["title"];
     $articleId =  $article["article_id"];
     echo "</br> Messege to be delivered";
