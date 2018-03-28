@@ -7,8 +7,9 @@ class Messeging {
     function __construct($deviceToken) {
         $this->deviceToken = $deviceToken;
     }
-    function sendmessage_android($title, $message){ 
-            $fields = array('registration_ids'  => array($this->deviceToken), 'notification' => array('title' => $title, 'body' => $message));//get the device token from Android 
+    function sendMessageToFCM($title, $articleId, $message){ 
+            //$fields = array('registration_ids'  => array($this->deviceToken), 'notification' => array('title' => $title, 'body' => $message));//get the device token from Android 
+            $fields = array('registration_ids'  => array($this->deviceToken), 'notification' => array('title' => $title, 'body' => $message), 'data' => array('article_id' =>$articleId ));
             $headers = array( 'Authorization: key=' . $this->apiKey,'Content-Type: application/json');
             $ch = curl_init();
             curl_setopt( $ch, CURLOPT_URL, $this->url );
